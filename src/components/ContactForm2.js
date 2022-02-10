@@ -42,7 +42,7 @@ export const ContactForm2 = () => {
                   id="text"
                     type='text'
                     {...register('text')}
-                    placeholder='Email'
+                    placeholder='Text:'
                     name='text'
                     className='form-control'
                   />
