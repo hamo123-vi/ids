@@ -42,7 +42,7 @@ export const ContactForm1 = () => {
                   We will message you back soon
               </p>
 
-              <form noValidate onSubmit={handleSubmit(onSubmit)}>
+              <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
                 <div className='form-group'>
                   <input
                     id="firstName"

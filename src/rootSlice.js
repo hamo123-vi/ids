@@ -7,7 +7,8 @@ const rootSlice = createSlice({
         lastName: "",
         email: "",
         phone: "",
-        text: ""
+        text: "",
+        cv: ""
     },
 
     reducers: {
@@ -15,10 +16,11 @@ const rootSlice = createSlice({
         enterLastName: (state, action) => {state.lastName = action.payload},
         enterEmail: (state, action) => {state.email = action.payload},
         enterPhone: (state, action) => {state.phone = action.payload},
-        enterText: (state, action) => {state.text = action.payload}
+        enterText: (state, action) => {state.text = action.payload},
+        enterCv: (state, action) => {state.cv = action.payload}
     }
 });
 
 export const reducer = rootSlice.reducer;
 
-export const {enterFirstName, enterLastName, enterEmail, enterPhone, enterText} = rootSlice.actions
+export const {enterFirstName, enterLastName, enterEmail, enterPhone, enterText, enterCv} = rootSlice.actions

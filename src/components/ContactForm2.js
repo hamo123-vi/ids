@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { enterText } from '../rootSlice';
+import { enterText, enterCv } from '../rootSlice';
 import '../App.css';
 
 export const ContactForm2 = () => {
@@ -10,10 +10,12 @@ export const ContactForm2 = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const text = useSelector(state => state.text);
-  const { register, handleSubmit } = useForm({defaultValues: { text }});
+  const cv = useSelector(state => state.cv);
+  const { register, handleSubmit } = useForm({defaultValues: { text, cv }});
 
   const onSubmit2 = (data) => {
     dispatch(enterText(data.text))
+    dispatch(enterCv(data.cv))
     navigate('/after')
     console.error("Submitted")
   }
@@ -33,7 +35,7 @@ export const ContactForm2 = () => {
                   We will message you back soon
               </p>
 
-              <form noValidate onSubmit={handleSubmit(onSubmit2)}>
+              <form noValidate onSubmit={handleSubmit(onSubmit2)} encType="multipart/form-data">
 
                 <div className='form-group'>
                   <input
@@ -42,6 +44,17 @@ export const ContactForm2 = () => {
                     {...register('text')}
                     placeholder='Email'
                     name='text'
+                    className='form-control'
+                  />
+                  </div>
+
+                  <div className='form-group'>
+                  <input
+                  id="cv"
+                    type='file'
+                    {...register('cv')}
+                    placeholder='File'
+                    name='cv'
                     className='form-control'
                   />
                   </div>
